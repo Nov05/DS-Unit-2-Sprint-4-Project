@@ -15,7 +15,7 @@ pre-compiled theme. Bootswatch is a great place to find new themes. Links to
 CDNs for each of the Bootswatch styles are also included , and can be used 
 with the external_stylesheets argument of the Dash constructor:
 
-app = dash.Dash(__name__, external_stylesheets=[dbc.themes.CERULEAN])
+app = dash.Dash(__name__, external_stylesheets=[dbc.themes.LUX])
 
 Go to https://bootswatch.com/ to preview these Bootswatch themes:
 
@@ -44,11 +44,11 @@ dbc.themes.YETI
 """
 
 external_stylesheets = [
-    dbc.themes.BOOTSTRAP,
+    dbc.themes.FLATLY,
     'https://use.fontawesome.com/releases/v5.9.0/css/all.css', # for social media icons
 ]
 
 app = dash.Dash(__name__, external_stylesheets=external_stylesheets)
 app.config.suppress_callback_exceptions = True
-app.title = 'YOUR APP NAME' # appears in browser title bar
+app.title = 'Software Development Effort Estimation' # appears in browser title bar
 server = app.server
