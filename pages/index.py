@@ -1,4 +1,4 @@
-﻿import dash
+import dash
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
@@ -32,13 +32,15 @@ column1 = dbc.Col(
         dcc.Markdown(
             """
         
-            ## Software projects usually take longer than estimated...
+            #### Software projects usually take longer than estimated...
 
-            Emphasize how the app will benefit users. Don't emphasize the underlying technology.
+            It is hard to estimate software project efforts. Change of requirements, unexpected technical difficulties, suddenly found defeats, developers having different experience and performance levels... all bring great uncertainties to the projects.
+            
+            &nbsp;
+            
+            #### How could effort estimation be improved?
 
-            ## How could effort estimation be improved?
-
-            This app build an effort estimation model from a software company's historical data.
+            This app uses an effort estimation model built from a software company's historical data to improve manuel estimation.
 
             """
         ), # ╰(○'◡'○)╮
