@@ -51,8 +51,9 @@ column1 = dbc.Col(
 # gapminder = px.data.gapminder()
 # fig = px.scatter(gapminder.query("year==2007"), x="gdpPercap", y="lifeExp", size="pop", color="continent",
 #            hover_name="country", log_x=True, size_max=60)
-url = "assets/hist_data.csv"
-hist_data = pd.read_csv(url, index_col=0).values
+
+path = "assets/hist_data.csv"
+hist_data = pd.read_csv(path, index_col=0).values
 group_labels = ['Hours Actual (log)', 'Hours Estimated (log)']
 fig = ff.create_distplot(hist_data, group_labels, bin_size=0.1, show_rug=False)
 fig.update_layout(
