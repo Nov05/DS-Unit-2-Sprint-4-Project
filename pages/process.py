@@ -13,7 +13,10 @@ column1 = dbc.Col(
         
             ## Process
 
-            Data Source: SiP Dataset https://github.com/Derek-Jones/SiP_dataset  
+            **Data Source**  
+            SiP Dataset https://github.com/Derek-Jones/SiP_dataset  
+            **GitHub Repository**  
+            https://github.com/nov05/DS-Unit-2-Sprint-4-Project  
 
             """
         ),

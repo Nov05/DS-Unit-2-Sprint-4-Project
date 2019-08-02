@@ -1,0 +1,27 @@
+,Category,SubCategory,TaskNumber
+4,Development,Enhancement,2592
+0,Development,Bug,2075
+7,Development,Support,1045
+5,Development,Release,457
+11,Development,Training,217
+9,Development,Testing,200
+1,Development,Business Specification,95
+2,Development,Conversion,75
+8,Development,Technical Specification,61
+3,Development,Documentation,45
+6,Development,Research,38
+10,Development,Third Party,18
+16,Management,Marketing,679
+14,Management,General Documentation,254
+15,Management,Management Meeting,191
+18,Management,Progress Meeting,109
+20,Management,Staff Management,100
+19,Management,Project Management,81
+17,Management,Office Management,71
+13,Management,Client Support,43
+12,Management,Board Meeting,21
+21,Management,Staff Recruitment,12
+25,Operational,In House Support,1137
+22,Operational,Client Support,573
+23,Operational,Consultancy,50
+24,Operational,Documentation,27

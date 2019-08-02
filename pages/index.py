@@ -4,6 +4,9 @@ import dash_core_components as dcc
 import dash_html_components as html
 from dash.dependencies import Input, Output
 import plotly.express as px
+import plotly.figure_factory as ff
+import plotly.graph_objects as go # plotly4.0.0
+import pandas as pd
 
 from app import app
 
@@ -35,17 +38,35 @@ column1 = dbc.Col(
 
             ## How could effort estimation be improved?
 
+            This app build an effort estimation model from a software company's historical data.
 
             """
-        ),
-        dcc.Link(dbc.Button('Click on Me (´・ω・`)', color='primary'), href='/predictions')
+        ), # ╰(○'◡'○)╮
+        dcc.Link(dbc.Button('Click on Me ╰(o\'◡\'o)╮', color='primary'), href='/predictions')
     ],
     md=4,
 )
 
-gapminder = px.data.gapminder()
-fig = px.scatter(gapminder.query("year==2007"), x="gdpPercap", y="lifeExp", size="pop", color="continent",
-           hover_name="country", log_x=True, size_max=60)
+# e.g.
+# gapminder = px.data.gapminder()
+# fig = px.scatter(gapminder.query("year==2007"), x="gdpPercap", y="lifeExp", size="pop", color="continent",
+#            hover_name="country", log_x=True, size_max=60)
+url = "assets/hist_data.csv"
+hist_data = pd.read_csv(url, index_col=0).values
+group_labels = ['Hours Actual (log)', 'Hours Estimated (log)']
+fig = ff.create_distplot(hist_data, group_labels, bin_size=0.1, show_rug=False)
+fig.update_layout(
+    title=go.layout.Title(text="Software Development Effort Distribution", xref="paper", x=0),
+    margin=dict(l=1,r=1,t=30,b=1),  
+    legend=dict(x=.65, y=.95),
+    xaxis=go.layout.XAxis(
+        tickmode = 'array',
+        tickvals = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+        ticktext = ['Hours', 'e<br>(2.72 hours)', 'e^2<br>(7.39 hours)', 
+                    'e^3<br>(20.09 hours)', 'e^4<br>(54.60 hours)', 'e^5<br>(148.41 hours)', 
+                    'e^6<br>(403.43 hours)', 'e^7<br>(1096.63 hours)', 'e^8<br>(2980.96 hours)', 
+                    'e^9<br>(8103.08 hours)']),
+)
 
 column2 = dbc.Col(
     [
