@@ -9,6 +9,10 @@ from app import app
 url_img1 = "https://github.com/Nov05/DS-Unit-2-Sprint-4-Project/blob/master/images/roughly%20compare%20models.png?raw=true"
 url_img2 = "https://github.com/Nov05/DS-Unit-2-Sprint-4-Project/blob/master/images/train_test_data_split.png?raw=true"
 url_img3 = "https://github.com/Nov05/DS-Unit-2-Sprint-4-Project/blob/master/images/prediction%20random%20forest.png?raw=true"
+url_img4 = "https://github.com/Nov05/DS-Unit-2-Sprint-4-Project/blob/master/images/actual%20hours%20as%20baseline.png?raw=true"
+url_img5 = "https://github.com/Nov05/DS-Unit-2-Sprint-4-Project/blob/master/images/feature_importance.png?raw=true"
+url_img6 = "https://github.com/Nov05/DS-Unit-2-Sprint-4-Project/blob/master/images/predict%20without%20manual%20estimation.png?raw=true"
+url_img7 = "https://github.com/Nov05/DS-Unit-2-Sprint-4-Project/blob/master/images/feature_importance_without_manual_estimation.png?raw=true"
 
 block1 = dbc.Col(
     [
@@ -94,11 +98,40 @@ block1 = dbc.Col(
             &nbsp;
             #### Evaluation
             
-            Our model's RMSE score is 0.647 over all.
+            Our model's RMSE score is `0.647` over all. Here are the prediction distributions for trainval data and test data.
             """
         ),
         html.Img(id='img3', src=url_img3, width="700px"),
-        
+        dcc.Markdown(
+            """
+            Compared to the Hours Estimate distribution. Our model's prediction tends to predict more hours for the most densely distributed part of data.
+            &nbsp;
+            """
+        ), 
+        html.Img(id='img4', src=url_img4, width="335px"),
+        dcc.Markdown(
+            """
+            &nbsp;
+            Check the feature importances of the Random Forest model. `HoursEstimate`(log) is significantly more important than other features, which means this model still largely rely on manuel estimation. But it could improve the estimation.
+            """
+        ),
+        html.Img(id='img5', src=url_img5, width="500px"),
+        dcc.Markdown(
+            """
+            &nbsp;
+            #### Explore Possibilities
+            
+            If we don't use HoursActual (manual estimation) as a feature, we will get an MSLE score of `0.982`, slightly better than the median baseline score `1.1627`. The prediction distribution tends to aggregate towards the median. If we really don't have a clue of how many hours should be estimated, we could use this prediction.
+            """
+        ),
+        html.Img(id='img6', src=url_img6, width="700px"), 
+        dcc.Markdown(
+            """
+            &nbsp;
+            The feature importance is listed as below.
+            """
+        ),
+        html.Img(id='img7', src=url_img7, width="500px"), 
         dcc.Markdown(
             """
             &nbsp;
