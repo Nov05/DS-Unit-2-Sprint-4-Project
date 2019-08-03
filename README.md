@@ -4,8 +4,10 @@
 
 ## :point_right: Logs
 
-2019-07-29 template copied  
-2019-08-01 app deployed on Heroku 
+2019-07-29 template copied    
+https://github.com/rrherr/dash-template  
+
+2019-08-01 app deployed on Heroku   
 https://hours-estimate.herokuapp.com/  
 
 ## :point_right: Notes    
