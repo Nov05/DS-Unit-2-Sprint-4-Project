@@ -8,7 +8,8 @@
 
 ## :point_right: Notes    
 
-2019-08-01 heroku app deployment logs
+2019-08-01 heroku app deployment logs  
+https://github.com/Nov05/Lambda-School-Data-Science/blob/master/miscellaneous/2019-08-01%20heroku%20deployment%20logs.md  
 
 2019-07-31 manage Python virtual environment with Anaconda3 and Pipenv  
 https://github.com/Nov05/Lambda-School-Data-Science/blob/master/miscellaneous/2019-07-31%20anaconda_pipenv.md 
