@@ -96,8 +96,10 @@ block3 = dbc.Col(
 )
 
 block4 = dbc.Col(
-    [
-        html.Img(id='img1', src=url_img1, width="700px")      
+    [ 
+        html.Div(
+            html.Img(id='img1', src=url_img1, width="100%")   
+        )  
     ]
 )
 
@@ -115,7 +117,7 @@ block5 = dbc.Col(
 
 block6 = dbc.Col(
     [
-        html.Img(id='img2', src=url_img2, width="700px")      
+        html.Img(id='img2', src=url_img2, width="100%")      
     ]
 )
 
@@ -133,7 +135,7 @@ block7 = dbc.Col(
 
 block8 = dbc.Col(
     [
-        html.Img(id='img4', src=url_img4, width="700px")      
+        html.Img(id='img4', src=url_img4, width="100%")      
     ]
 )
 
@@ -142,11 +144,11 @@ block9 = dbc.Col(
         dcc.Markdown(
             """
             #### Estimation Errors
-            If `Estimation Error = Hours Estimated - Hours Actual`, from the distribution 
+            If `Estimation Errors = Estimated Hours - Actual Hours`, from the distribution 
             we could see:   
-            1. errors are approximately within range (-700, 2500) hours;  
-            2. most estimation errors are within a few hours, but two long tails indicate that some error numbers are huge;  
-            3. people tend to under estimate effort for complex tasks.   
+            1. Errors are approximately within range (-2500, 700) hours;  
+            2. Most estimation errors are within a few hours, but two long tails indicate that some error numbers are huge;  
+            3. People tend to under estimate effort for complex tasks.   
             """
         ),
     ],
@@ -155,7 +157,7 @@ block9 = dbc.Col(
 
 block10 = dbc.Col(
     [
-        html.Img(id='img3', src=url_img3, width="700px")      
+        html.Img(id='img3', src=url_img3, width="100%")      
     ]
 )
 

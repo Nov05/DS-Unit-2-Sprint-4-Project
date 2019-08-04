@@ -1,4 +1,4 @@
-import dash
+﻿import dash
 import dash_bootstrap_components as dbc
 import dash_core_components as dcc
 import dash_html_components as html
@@ -31,7 +31,6 @@ column1 = dbc.Col(
     [
         dcc.Markdown(
             """
-        
             #### Software projects usually take longer than estimated...
 
             It is hard to estimate software project efforts. Change of requirements, unexpected technical difficulties, suddenly found defeats, developers having different experience and performance levels... all bring great uncertainties to the projects.
@@ -41,10 +40,10 @@ column1 = dbc.Col(
             #### How could effort estimation be improved?
 
             This app uses an effort estimation model built from a software company's historical data to improve manuel estimation.
-
             """
         ), # ╰(○'◡'○)╮
-        dcc.Link(dbc.Button('Click on Me ╰(o\'◡\'o)╮', color='primary'), href='/predictions')
+        dcc.Link(dbc.Button('Click on Me ╰(o\'◡\'o)╮', color='primary'), href='/predictions'),
+        dcc.Markdown("""&nbsp;"""),
     ],
     md=4,
 )
@@ -65,10 +64,10 @@ fig.update_layout(
     xaxis=go.layout.XAxis(
         tickmode = 'array',
         tickvals = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-        ticktext = ['Hours', 'e<br>(2.72 hours)', 'e^2<br>(7.39 hours)', 
-                    'e^3<br>(20.09 hours)', 'e^4<br>(54.60 hours)', 'e^5<br>(148.41 hours)', 
-                    'e^6<br>(403.43 hours)', 'e^7<br>(1096.63 hours)', 'e^8<br>(2980.96 hours)', 
-                    'e^9<br>(8103.08 hours)']),
+        ticktext = ['Hours', 'e<br>2.72 hours', 'e^2<br>7.39 hours', 
+                    'e^3<br>20.09 hours', 'e^4<br>54.60 hours', 'e^5<br>148.41 hours', 
+                    'e^6<br>403.43 hours', 'e^7<br>1096.63 hours', 'e^8<br>2980.96 hours', 
+                    'e^9<br>8103.08 hours']),
 )
 
 column2 = dbc.Col(

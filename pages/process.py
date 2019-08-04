@@ -26,9 +26,9 @@ block1 = dbc.Col(
             1. Merge data from the two CSV files into one data frame;   
             2. Count how many breakdown codes there are in a project, and make it a new feature. Usually the more breakdown codes a projects has, the larger and the more complex the project is;
             3. Divide the Developer Performance into 10 levels, and make it a new feature. Usually the better performance a developer has, the less effort is estimated for a task;  
-            4. Hours' distributions are highly skewed, hence we calculate their log values to make it easir for our models.
-            5. Use Actual Hours (log) as the target feature. This will be a regression problem.  
-            6. We want to predict effort for different projects, different developers, etc. So those columns will be dropped. Instead, we want to keep feature `Category`, `SubCategory`, `Priority`, `HoursEstimate`(log) and engineered feature Breakdown Numbers, Developer Performance Level to train our models.  
+            4. The hour distributions are highly skewed, hence we will use their log values to make it easier for our models.
+            5. Use `HoursActual` (log) as the target feature. This will be a regression problem.  
+            6. We want to predict effort for different projects, different developers, etc. So those columns will be dropped. Instead, we want to keep features `Category`, `SubCategory`, `Priority`, `HoursEstimate` (log) and engineered features Breakdown Numbers, Developer Performance Level to train our models.  
             
             &nbsp;
             #### Baseline Prediction
@@ -41,14 +41,14 @@ block1 = dbc.Col(
             Randomly split the data into trainval data (80%) and test data (20%). Check their distributions, and they shouldn't be very different.
             """
         ),
-        html.Img(id='img2', src=url_img2, width="700px"),
+        html.Img(id='img2', src=url_img2, width="70%"),
         
         dcc.Markdown(
             """
             &nbsp;
             #### Modeling
             
-            1. Roughly compare the following models and choose Random Forests.
+            1. Roughly compare the following models and choose Random Forest regressor.
             * kn = K-Neighbors
             * dt = Decision Tree
             * rf = Random Forest
@@ -57,7 +57,7 @@ block1 = dbc.Col(
             * gb = Gradient Boosting
             """
         ),
-        html.Img(id='img1', src=url_img1, width="700px"),  
+        html.Img(id='img1', src=url_img1, width="70%"),  
         
         dcc.Markdown(
             """
@@ -93,45 +93,45 @@ block1 = dbc.Col(
                                n_jobs=n_jobs)), 
                           ])  
             ```
-            3. Use `sklearn.model_selection.RandomizedSearchCV()` to find proper parameters.
+            3. Use `sklearn.model_selection.RandomizedSearchCV()` to find proper hyperparameters.
             
             &nbsp;
             #### Evaluation
             
-            Our model's RMSE score is `0.647` over all. Here are the prediction distributions for trainval data and test data.
+            Our model's RMSE score is `0.647` overall. Here are the prediction distributions of trainval data and test data.
             """
         ),
-        html.Img(id='img3', src=url_img3, width="700px"),
+        html.Img(id='img3', src=url_img3, width="70%"),
         dcc.Markdown(
             """
-            Compared to the Hours Estimate distribution. Our model's prediction tends to predict more hours for the most densely distributed part of data.
+            Compared to the HoursEstimate distribution. Our model tends to predict more hours for the most densely distributed part of data.
             &nbsp;
             """
         ), 
-        html.Img(id='img4', src=url_img4, width="335px"),
+        html.Img(id='img4', src=url_img4, width="35%"),
         dcc.Markdown(
             """
             &nbsp;
-            Check the feature importances of the Random Forest model. `HoursEstimate`(log) is significantly more important than other features, which means this model still largely rely on manuel estimation. But it could improve the estimation.
+            Check the feature importances of the Random Forest model. `HoursEstimate`(log) is significantly more important than other features, which means this model largely relys on manuel estimation, however it could improve the estimation.
             """
         ),
-        html.Img(id='img5', src=url_img5, width="500px"),
+        html.Img(id='img5', src=url_img5, width="50%"),
         dcc.Markdown(
             """
             &nbsp;
             #### Explore Possibilities
             
-            If we don't use HoursActual (manual estimation) as a feature, we will get an MSLE score of `0.982`, slightly better than the median baseline score `1.1627`. The prediction distribution tends to aggregate towards the median. If we really don't have a clue of how many hours should be estimated, we could use this prediction.
+            If we don't use HoursActual (manuel estimation) as a feature, we will get predictions with MSLE score of `0.982`, worse than manuel estimation score `0.752`, yet slightly better than the median baseline score `1.1627`. The prediction distribution tends to aggregate towards the median. If we really don't have a clue of how many hours should be estimated for a task, we could use this prediction.
             """
         ),
-        html.Img(id='img6', src=url_img6, width="700px"), 
+        html.Img(id='img6', src=url_img6, width="70%"), 
         dcc.Markdown(
             """
-            &nbsp;
-            The feature importance is listed as below.
+            &nbsp;  
+            The feature importances are listed as below.
             """
         ),
-        html.Img(id='img7', src=url_img7, width="500px"), 
+        html.Img(id='img7', src=url_img7, width="50%"), 
         dcc.Markdown(
             """
             &nbsp;
