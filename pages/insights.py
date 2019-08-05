@@ -11,8 +11,8 @@ from app import app
 #######################################################
 # Plotly Figure
 #######################################################
-url = "https://raw.githubusercontent.com/Nov05/DS-Unit-2-Sprint-4-Project/master/assets/hours_category2.csv"
-path = "assets/hours_category2.csv"
+url = "https://raw.githubusercontent.com/Nov05/DS-Unit-2-Sprint-4-Project/master/assets/hours_category.csv"
+path = "assets/hours_category.csv"
 df = pd.read_csv(path)
 df = df.round(2)
 
@@ -175,18 +175,16 @@ blankrow = dbc.Col(
 #######################################################
 # Web Page Layout
 #######################################################
-layout = dbc.Col(
-    [
-        dbc.Row(header),
-        dbc.Row(blankrow),
-        dbc.Row([block1, block2]), 
-        dbc.Row(blankrow),
-        dbc.Row([block3, block4]),
-        dbc.Row(blankrow),
-        dbc.Row([block5, block6]),
-        dbc.Row(blankrow),
-        dbc.Row([block7, block8]),
-        dbc.Row(blankrow),
-        dbc.Row([block9, block10]),
-    ]
-)
+layout = dbc.Col([
+    dbc.Row(header),
+    dbc.Row(blankrow),
+    dbc.Row([block1, block2]), 
+    dbc.Row(blankrow),
+    dbc.Row([block3, block4]),
+    dbc.Row(blankrow),
+    dbc.Row([block5, block6]),
+    dbc.Row(blankrow),
+    dbc.Row([block7, block8]),
+    dbc.Row(blankrow),
+    dbc.Row([block9, block10]),
+])

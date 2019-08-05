@@ -33,7 +33,7 @@ column1 = dbc.Col(
             """
             #### Software projects usually take longer than estimated...
 
-            It is hard to estimate software project efforts. Change of requirements, unexpected technical difficulties, suddenly found defeats, developers having different experience and performance levels... all bring great uncertainties to the projects.
+            It is hard to estimate software project efforts. Change of requirements, unexpected technical difficulties, suddenly found defeats, developers having different experience and performance levels, etc., all could bring great uncertainties to a project.
             
             &nbsp;
             
