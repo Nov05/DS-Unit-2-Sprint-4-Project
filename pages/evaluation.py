@@ -50,8 +50,8 @@ def plotly_errors(hoursactual, hoursestimate, title):
 # Plotly Scatterplot takes long time to render...
 samples = hours.sort_values(by='HoursActual').sample(int(len(hours)/30))
 fig1 = plotly_errors(samples['HoursActual'], samples['HoursEstimate'], "Manuel Estimation Samples (1/30)")
-# fig2 = plotly_errors(samples['HoursActual'], samples['HoursPredict'], "Model Prediction Samples (1/30)")
-# fig3 = plotly_errors(samples['HoursActual'], samples['HoursPredict2'], "Model Prediction (without Manuel Estimation) Samples (1/30)")
+fig2 = plotly_errors(samples['HoursActual'], samples['HoursPredict'], "Model Prediction Samples (1/30)")
+fig3 = plotly_errors(samples['HoursActual'], samples['HoursPredict2'], "Model Prediction (without Manuel Estimation) Samples (1/30)")
 
 #######################################################
 # Web Page Content
@@ -81,14 +81,14 @@ block1 = dbc.Col(
 
 block2 = dbc.Col(
     [
-#         dcc.Graph(figure=fig2),
+        dcc.Graph(figure=fig2),
     ],
     md=4,
 )
 
 block3 = dbc.Col(
     [
-#         dcc.Graph(figure=fig3),
+        dcc.Graph(figure=fig3),
     ],
     md=4,
 )
