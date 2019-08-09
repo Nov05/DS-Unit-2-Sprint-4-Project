@@ -25,7 +25,7 @@ pipeline2 = load(path2)
 # Dash Input Options
 ###############################################
 # Performance Level: 1-10 int
-# Manuel Estimation Hours: 0-2500 float
+# Manual Estimation Hours: 0-2500 float
 # convert list to dictionary
 list_cate = ['Development', 'Management', 'Operational']
 list_sub_dev = ['Enhancement', 'Bug', 'Support', 'Release', 'Training', 
@@ -59,7 +59,7 @@ header = dbc.Col(
         dcc.Markdown(
             """
             ## Predictions
-            Input `Category`,  `Sub-Category`,  `Project Breakdown Number`,  `Priority`,  `Developer Performance Level`,  and `Hours Manuelly Estimated`, `With/Without Manual Estimation`, then click on the "Submit" button, to get effort hour estimated by the model.
+            Input `Category`,  `Sub-Category`,  `Project Breakdown Number`,  `Priority`,  `Developer Performance Level`,  and `Hours Manually Estimated`, `With/Without Manual Estimation`, then click on the "Submit" button, to get effort hour estimated by the model.
             """
         ),
     ],
@@ -212,10 +212,10 @@ def cb_predict(input_n_clicks, input_cate, input_sub_dev,
     cols = ['Priority', 'Category', 'SubCategory', 'hoursestimatelog', 'breakdown', 'performancelevel']
     X1 = pd.DataFrame([[input_prior, input_cate, subcate, np.log1p(float(input_hours)), int(input_breakdown), input_perf]],
                      columns=cols)
-    # Predict with manuel estimation
+    # Predict with manual estimation
     y1 = pipeline1.predict(X1)
     X2 = X1.drop('hoursestimatelog', axis=1)
-    # Predict without manuel estimation
+    # Predict without manual estimation
     y2 = pipeline2.predict(X2)
     return np.expm1(y1).round(1)[0], np.expm1(y2).round(1)[0]
     

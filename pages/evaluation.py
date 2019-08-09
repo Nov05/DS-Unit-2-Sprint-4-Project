@@ -49,9 +49,9 @@ def plotly_errors(hoursactual, hoursestimate, title):
 
 # Plotly Scatterplot takes long time to render...
 samples = hours.sort_values(by='HoursActual').sample(int(len(hours)/30))
-fig1 = plotly_errors(samples['HoursActual'], samples['HoursEstimate'], "Manuel Estimation Samples (1/30)")
+fig1 = plotly_errors(samples['HoursActual'], samples['HoursEstimate'], "Manual Estimation Samples (1/30)")
 fig2 = plotly_errors(samples['HoursActual'], samples['HoursPredict'], "Model Prediction Samples (1/30)")
-fig3 = plotly_errors(samples['HoursActual'], samples['HoursPredict2'], "Model Prediction (without Manuel Estimation) Samples (1/30)")
+fig3 = plotly_errors(samples['HoursActual'], samples['HoursPredict2'], "Model Prediction (without Manual Estimation) Samples (1/30)")
 
 #######################################################
 # Web Page Content
@@ -62,8 +62,8 @@ header = dbc.Col(
             """
             ## Evaluation  
             HoursEstimate-HoursActual RMSE: 0.752  
-            Model RMSE (with manuel estimation): 0.637   
-            Model RMSE (without manuel estimation): 1.002  
+            Model RMSE (with manual estimation): 0.637   
+            Model RMSE (without manual estimation): 1.002  
             """
         ),
     ],
