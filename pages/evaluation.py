@@ -9,7 +9,7 @@ import pandas as pd
 from app import app
 
 #######################################################
-# Plotly Figure
+# Plotly Figures
 #######################################################
 url = "https://raw.githubusercontent.com/Nov05/DS-Unit-2-Sprint-4-Project/master/assets/hours_predict.csv"
 path = "assets/hours_predict.csv"

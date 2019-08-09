@@ -26,35 +26,19 @@ should take up a third of the width. Since we don't specify behaviour on
 smallersize screens Bootstrap will allow the rows to wrap so as not to squash 
 the content.
 """
-
-column1 = dbc.Col(
-    [
-        dcc.Markdown(
-            """
-            #### Software projects usually take longer than estimated...
-
-            It is hard to estimate software project efforts. Change of requirements, unexpected technical difficulties, suddenly found defeats, developers having different experience and performance levels, etc., all could bring great uncertainties to a project.
-            
-            &nbsp;
-            
-            #### How could effort estimation be improved?
-
-            This app uses an effort estimation model built from a software company's historical data to improve manuel estimation.
-            """
-        ), # ╰(○'◡'○)╮
-        dcc.Link(dbc.Button('Click on Me ╰(o\'◡\'o)╮', color='primary'), href='/predictions'),
-        dcc.Markdown("""&nbsp;"""),
-    ],
-    md=4,
-)
-
+#######################################################
+# Plotly Figures
+#######################################################
 # e.g.
 # gapminder = px.data.gapminder()
 # fig = px.scatter(gapminder.query("year==2007"), x="gdpPercap", y="lifeExp", size="pop", color="continent",
 #            hover_name="country", log_x=True, size_max=60)
 
-path = "assets/hist_data.csv"
-hist_data = pd.read_csv(path, index_col=0).values
+url = "https://raw.githubusercontent.com/Nov05/DS-Unit-2-Sprint-4-Project/master/assets/hours_predict.csv"
+path = "assets/hours_predict.csv"
+hours = pd.read_csv(path, index_col=0)
+
+hist_data = hours[['HoursActual', 'HoursEstimate']].T.values
 group_labels = ['Hours Actual (log)', 'Hours Estimated (log)']
 fig = ff.create_distplot(hist_data, group_labels, bin_size=0.1, show_rug=False)
 fig.update_layout(
@@ -68,6 +52,30 @@ fig.update_layout(
                     'e^3<br>20.09 hours', 'e^4<br>54.60 hours', 'e^5<br>148.41 hours', 
                     'e^6<br>403.43 hours', 'e^7<br>1096.63 hours', 'e^8<br>2980.96 hours', 
                     'e^9<br>8103.08 hours']),
+)
+
+#######################################################
+# Web Page Content
+#######################################################
+column1 = dbc.Col(
+    [
+        dcc.Markdown(
+            """
+            #### Software projects usually take longer than estimated...
+
+            It is hard to estimate software project efforts. Change of requirements, unexpected technical difficulties, suddenly found defeats, developers having different experience and performance levels, etc., all could bring great uncertainties to a project.
+            
+            &nbsp;
+            
+            #### How could effort estimation be improved?
+
+            This app uses an effort estimation model built from a software company's historical data to improve manual estimation.
+            """
+        ), # ╰(○'◡'○)╮
+        dcc.Link(dbc.Button('Click on Me ╰(o\'◡\'o)╮', color='primary'), href='/predictions'),
+        dcc.Markdown("""&nbsp;"""),
+    ],
+    md=4,
 )
 
 column2 = dbc.Col(

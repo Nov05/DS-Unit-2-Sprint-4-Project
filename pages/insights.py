@@ -18,9 +18,9 @@ df = df.round(2)
 
 fig = go.Figure(data=[go.Table(
     header=dict(values=['Category', 'Sub Cat', 'Ttl Task', 
-                         'Est Sum', 'Actl Sum', 
-                         'Est Max', 'Actl Max',
-                         'Est Min', 'Actl Min'],
+                        'Est Sum', 'Actl Sum', 
+                        'Est Max', 'Actl Max',
+                        'Est Min', 'Actl Min'],
                 align='left'),
     cells=dict(values=[df['Category'], 
                        df['SubCategory'], 

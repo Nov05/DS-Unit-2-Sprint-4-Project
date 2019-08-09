@@ -112,7 +112,7 @@ block1 = dbc.Col(
         dcc.Markdown(
             """
             &nbsp;
-            Check the feature importances of the Random Forest model. `HoursEstimate`(log) is significantly more important than other features, which means this model largely relys on manuel estimation, however it could improve the estimation.
+            Check the feature importances of the Random Forest model. `HoursEstimate`(log) is significantly more important than other features, which means this model largely relys on manual estimation, however it could improve the estimation.
             """
         ),
         html.Img(id='img5', src=url_img5, width="50%"),
@@ -121,7 +121,7 @@ block1 = dbc.Col(
             &nbsp;
             #### Explore Possibilities
             
-            If we don't use HoursActual (manuel estimation) as a feature, we will get predictions with MSLE score of `0.982`, worse than manuel estimation score `0.752`, yet slightly better than the median baseline score `1.1627`. The prediction distribution tends to aggregate towards the median. If we really don't have a clue of how many hours should be estimated for a task, we could use this prediction.
+            If we don't use HoursActual (manual estimation) as a feature, we will get predictions with MSLE score of `0.982`, worse than manual estimation score `0.752`, yet slightly better than the median baseline score `1.1627`. The prediction distribution tends to aggregate towards the median. If we really don't have a clue of how many hours should be estimated for a task, we could use this prediction.
             """
         ),
         html.Img(id='img6', src=url_img6, width="70%"), 

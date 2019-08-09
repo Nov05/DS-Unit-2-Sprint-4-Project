@@ -37,10 +37,10 @@ list_sub_mngt = ['Marketing', 'Management Meeting', 'General Documentation', 'Pr
 list_sub_oprt = ['In House Support', 'Client Support', 'Consultancy', 'Documentation']
 
 def list_to_opt(l):
-  opt = []
-  for i in l:
-    opt.append({'label':i, 'value':i})
-  return opt
+    opt = []
+    for i in l:
+        opt.append({'label':i, 'value':i})
+    return opt
 opt_cate = list_to_opt(list_cate)
 opt_sub_dev = list_to_opt(list_sub_dev)
 opt_sub_mngt = list_to_opt(list_sub_mngt)
@@ -59,7 +59,7 @@ header = dbc.Col(
         dcc.Markdown(
             """
             ## Predictions
-            Input `Category`,  `Sub-Category`,  `Project Breakdown Number`,  `Priority`,  `Developer Performance Level`,  and `Hours Manuelly Estimated`, `With/Without Manuel Estimation`, then click on the "Submit" button, to get effort hour estimated by the model.
+            Input `Category`,  `Sub-Category`,  `Project Breakdown Number`,  `Priority`,  `Developer Performance Level`,  and `Hours Manuelly Estimated`, `With/Without Manual Estimation`, then click on the "Submit" button, to get effort hour estimated by the model.
             """
         ),
     ],
@@ -118,9 +118,9 @@ block2 = dbc.Col(
                        marks={i:str(i) for i in range(1,11)},)  
         ], style={'marginBottom':36, 'display':'block'}),
         
-        # Manuel Estimate Text Input
+        # Manual Estimate Text Input
         html.Div([
-            dcc.Markdown("""#### Hours Manuelly Estimated"""),
+            dcc.Markdown("""#### Hours Manually Estimated"""),
             html.Div([
                 dcc.Input(id='input_hours', type='text', inputMode='numeric', value=10.0),
             ], style={'display':'inline-block', 'marginRight':5,}),
@@ -141,7 +141,7 @@ block3 = dbc.Col(
         
         # estimation output
         html.Div([
-            dcc.Markdown("""#### With Manuel Estimation"""),
+            dcc.Markdown("""#### With Manual Estimation"""),
             html.Div([
                 dcc.Input(id='output_hours1', type='text', inputMode='numeric', value=0,
                           disabled=True, debounce=True),
@@ -150,7 +150,7 @@ block3 = dbc.Col(
         
         # estimation output
         html.Div([
-            dcc.Markdown("""#### Without Manuel Estimation"""),
+            dcc.Markdown("""#### Without Manual Estimation"""),
             html.Div([
                 dcc.Input(id='output_hours2', type='text', inputMode='numeric', value=0,
                           disabled=True, debounce=True),
